@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 /**
- * main Entry - point
+ * main - Entry point
  *
  * Description: print all single digit numbers
  *
