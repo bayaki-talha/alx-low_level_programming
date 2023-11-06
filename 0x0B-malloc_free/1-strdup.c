@@ -1,58 +1,43 @@
 #include <stdio.h>
-		
 #include <stdlib.h>
-		
-#include "main.h"
-		
-/**
-		
- * _strdup - duplicate to new memory space location
-		
- * @str: char
-		
- * Return: 0
-		
- */
-		
-char *_strdup(char *str)
-		
-{
-		
-	char *aaa;
-		
-	int i, r = 0;
-		
+#include <string.h>
 
-		
-	if (str == NULL)
-		
-		return (NULL);
-		
-	i = 0;
-		
-	while (str[i] != '\0')
-		
-		i++;
-		
+char *_strdup(const char *str) {
+    // Check if the input string is NULL
+    if (str == NULL) {
+        return NULL;
+    }
 
-		
-	aaa = malloc(sizeof(char) * (i + 1));
-		
+    // Determine the length of the input string
+    size_t length = strlen(str);
 
-		
-	if (aaa == NULL)
-		
-		return (NULL);
-		
+    // Allocate memory for the duplicated string
+    char *duplicate = (char *)malloc(length + 1); // +1 for the null terminator
 
-		
-	for (r = 0; str[r]; r++)
-		
-		aaa[r] = str[r];
-		
+    // Check if memory allocation was successful
+    if (duplicate == NULL) {
+        return NULL; // Insufficient memory
+    }
 
-		
-	return (aaa);
-		
+    // Copy the content of the input string to the duplicated string
+    strcpy(duplicate, str);
+
+    return duplicate;
 }
 
+int main() {
+    const char *original = "Hello, World!";
+    char *duplicate = _strdup(original);
+
+    if (duplicate != NULL) {
+        printf("Original: %s\n", original);
+        printf("Duplicated: %s\n", duplicate);
+
+        // Don't forget to free the duplicated string when done with it
+        free(duplicate);
+    } else {
+        printf("Memory allocation failed.\n");
+    }
+
+    return 0;
+}
