@@ -1,16 +1,19 @@
-#include <stdio>
+#ifndef DOG_H
+#define DOG_H
 
-struct dog 
+/**
+ * struct dog - dog struct
+ * @name: the dog's name
+ * @age: the dog's age
+ * @owner: the dog's owner name
+ * Description: alone pretty dog
+*/
+struct dog
 {
-	char name;
+	char *name;
 	float age;
 	char *owner;
 };
-int main(void)
-{
-	struct dog myDog;
-	myDog.name = "aseel";
-	myDog.age = 2;
-	myDog.owner = "bayaki";
-	return (0);
-}
+
+
+#endif
