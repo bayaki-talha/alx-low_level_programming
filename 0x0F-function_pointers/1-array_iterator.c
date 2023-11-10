@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * array_iterator - prints array elements
+ * array_iterator - prints array elements on a new line
  * @array: array
  * @size: size of elements to print
- * @action: pointer name
+ * @action: pointer to print
  * Return: void
 */
 void array_iterator(int *array, size_t size, void(*action)(int))
